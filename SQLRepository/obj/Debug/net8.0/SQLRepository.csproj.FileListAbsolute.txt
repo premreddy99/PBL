@@ -1,0 +1,15 @@
+C:\Users\maidh\source\repos\StudentManagementAPI\SQLRepository\bin\Debug\net8.0\SQLRepository.deps.json
+C:\Users\maidh\source\repos\StudentManagementAPI\SQLRepository\bin\Debug\net8.0\SQLRepository.dll
+C:\Users\maidh\source\repos\StudentManagementAPI\SQLRepository\bin\Debug\net8.0\SQLRepository.pdb
+C:\Users\maidh\source\repos\StudentManagementAPI\SQLRepository\obj\Debug\net8.0\SQLRepository.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\maidh\source\repos\StudentManagementAPI\SQLRepository\obj\Debug\net8.0\SQLRepository.AssemblyInfoInputs.cache
+C:\Users\maidh\source\repos\StudentManagementAPI\SQLRepository\obj\Debug\net8.0\SQLRepository.AssemblyInfo.cs
+C:\Users\maidh\source\repos\StudentManagementAPI\SQLRepository\obj\Debug\net8.0\SQLRepository.csproj.CoreCompileInputs.cache
+C:\Users\maidh\source\repos\StudentManagementAPI\SQLRepository\obj\Debug\net8.0\SQLRepository.dll
+C:\Users\maidh\source\repos\StudentManagementAPI\SQLRepository\obj\Debug\net8.0\refint\SQLRepository.dll
+C:\Users\maidh\source\repos\StudentManagementAPI\SQLRepository\obj\Debug\net8.0\SQLRepository.pdb
+C:\Users\maidh\source\repos\StudentManagementAPI\SQLRepository\obj\Debug\net8.0\ref\SQLRepository.dll
+C:\Users\maidh\source\repos\StudentManagementAPI\SQLRepository\obj\Debug\net8.0\SQLRepository.csproj.AssemblyReference.cache
+C:\Users\maidh\source\repos\StudentManagementAPI\SQLRepository\bin\Debug\net8.0\Common.dll
+C:\Users\maidh\source\repos\StudentManagementAPI\SQLRepository\bin\Debug\net8.0\Common.pdb
+C:\Users\maidh\source\repos\StudentManagementAPI\SQLRepository\obj\Debug\net8.0\SQLRepository.csproj.CopyComplete

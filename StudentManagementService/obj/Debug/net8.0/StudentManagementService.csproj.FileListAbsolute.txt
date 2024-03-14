@@ -1,0 +1,17 @@
+C:\Users\maidh\source\repos\StudentManagementAPI\StudentManagementService\bin\Debug\net8.0\StudentManagementService.deps.json
+C:\Users\maidh\source\repos\StudentManagementAPI\StudentManagementService\bin\Debug\net8.0\StudentManagementService.dll
+C:\Users\maidh\source\repos\StudentManagementAPI\StudentManagementService\bin\Debug\net8.0\StudentManagementService.pdb
+C:\Users\maidh\source\repos\StudentManagementAPI\StudentManagementService\bin\Debug\net8.0\SQLRepository.dll
+C:\Users\maidh\source\repos\StudentManagementAPI\StudentManagementService\bin\Debug\net8.0\SQLRepository.pdb
+C:\Users\maidh\source\repos\StudentManagementAPI\StudentManagementService\obj\Debug\net8.0\StudentManagementService.csproj.AssemblyReference.cache
+C:\Users\maidh\source\repos\StudentManagementAPI\StudentManagementService\obj\Debug\net8.0\StudentManagementService.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\maidh\source\repos\StudentManagementAPI\StudentManagementService\obj\Debug\net8.0\StudentManagementService.AssemblyInfoInputs.cache
+C:\Users\maidh\source\repos\StudentManagementAPI\StudentManagementService\obj\Debug\net8.0\StudentManagementService.AssemblyInfo.cs
+C:\Users\maidh\source\repos\StudentManagementAPI\StudentManagementService\obj\Debug\net8.0\StudentManagementService.csproj.CoreCompileInputs.cache
+C:\Users\maidh\source\repos\StudentManagementAPI\StudentManagementService\obj\Debug\net8.0\StudentManagementService.csproj.CopyComplete
+C:\Users\maidh\source\repos\StudentManagementAPI\StudentManagementService\obj\Debug\net8.0\StudentManagementService.dll
+C:\Users\maidh\source\repos\StudentManagementAPI\StudentManagementService\obj\Debug\net8.0\refint\StudentManagementService.dll
+C:\Users\maidh\source\repos\StudentManagementAPI\StudentManagementService\obj\Debug\net8.0\StudentManagementService.pdb
+C:\Users\maidh\source\repos\StudentManagementAPI\StudentManagementService\obj\Debug\net8.0\ref\StudentManagementService.dll
+C:\Users\maidh\source\repos\StudentManagementAPI\StudentManagementService\bin\Debug\net8.0\Common.dll
+C:\Users\maidh\source\repos\StudentManagementAPI\StudentManagementService\bin\Debug\net8.0\Common.pdb
