@@ -20,6 +20,13 @@ steps:
   inputs:
     command: 'build'
     projects: '**/*.csproj'
+
+- task: DotNetCoreCLI@2
+  inputs:
+    command: 'test'
+    projects: '**/*[Tt]ests*/*.csproj'
+    arguments: '--configuration release --output $(Build.ArtifactStagingDirectory)'
+
 - task: DotNetCoreCLI@2
   inputs:
     command: 'publish'
