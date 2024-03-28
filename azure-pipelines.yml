@@ -1,0 +1,38 @@
+#Testing about CI
+
+trigger:
+- main
+
+pool:
+  vmImage: 'windows-latest'
+
+steps:
+- powershell: |
+    $filePath = "Common"
+    if (-not (Test-Path $filePath)) {
+        Write-Output "The file '$filePath' does not exist."
+        exit 1  # Fail the task
+    } else {
+        Write-Output "The file '$filePath' exists."
+    }
+  displayName: 'Check File Existence'
+- task: DotNetCoreCLI@2
+  inputs:
+    command: 'build'
+    projects: '**/*.csproj'
+- task: DotNetCoreCLI@2
+  inputs:
+    command: 'publish'
+    publishWebProjects: false
+    projects: '**/StudentManagementAPI.csproj'
+    arguments: '--configuration release --output $(Build.ArtifactStagingDirectory)'
+    zipAfterPublish: false
+# - task: CopyFiles@2
+#   inputs:
+#     Contents: '**/*.dll'
+#     TargetFolder: '$(build.artifactstagingdirectory)'
+- task: PublishBuildArtifacts@1
+  inputs:
+    PathtoPublish: '$(Build.ArtifactStagingDirectory)'
+    ArtifactName: 'dll_file'
+    publishLocation: 'Container'
