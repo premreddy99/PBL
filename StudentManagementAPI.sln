@@ -9,7 +9,11 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "StudentManagementService", 
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SQLRepository", "SQLRepository\SQLRepository.csproj", "{A92D00D7-E545-4333-AFEF-FC504DBC41E9}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Common", "Common\Common.csproj", "{1977E32B-87B6-45A9-99D2-7381C2E3D05F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Common", "Common\Common.csproj", "{1977E32B-87B6-45A9-99D2-7381C2E3D05F}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tests", "tests", "{7211DFA7-2C4E-453D-ABC8-BA63BC4724EE}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StudentManagement.UnitTests", "tests\StudentManagement.UnitTests\StudentManagement.UnitTests.csproj", "{3CC5DE61-BFA4-4A3D-9147-FEEACB02F2BC}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -33,9 +37,16 @@ Global
 		{1977E32B-87B6-45A9-99D2-7381C2E3D05F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{1977E32B-87B6-45A9-99D2-7381C2E3D05F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{1977E32B-87B6-45A9-99D2-7381C2E3D05F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3CC5DE61-BFA4-4A3D-9147-FEEACB02F2BC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3CC5DE61-BFA4-4A3D-9147-FEEACB02F2BC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3CC5DE61-BFA4-4A3D-9147-FEEACB02F2BC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3CC5DE61-BFA4-4A3D-9147-FEEACB02F2BC}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{3CC5DE61-BFA4-4A3D-9147-FEEACB02F2BC} = {7211DFA7-2C4E-453D-ABC8-BA63BC4724EE}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {012B6733-0E02-4FEC-83A7-033AC23A3EA3}

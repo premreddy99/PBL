@@ -14,6 +14,7 @@ namespace StudentManagementAPI.Controllers
         {
             _studentService = studentService;
         }
+        public StudentController() { }
         /*[HttpGet]
         [Route("GetStudentsStartingWithA")]
         public ActionResult<Student[]> GetStudentsStartingWithA()
@@ -66,6 +67,12 @@ namespace StudentManagementAPI.Controllers
            
         }
 
+        [HttpGet]
+        [Route("giveMeAStudent")]
+        public string GiveStudent()
+        {
+            return "abc";
+        }
 
         [HttpPut]
         [Route("UpdateStudentById/{id}")]
