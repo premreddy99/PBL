@@ -25,15 +25,21 @@ steps:
   inputs:
     command: 'test'
     projects: '**/*[Tt]ests*/*.csproj'
-    arguments: '--configuration release --output $(Build.ArtifactStagingDirectory)'
-
+    arguments: '--configuration release --output $(Build.ArtifactStagingDirectory) /p:CollectCoverage=true /p:CoverletOutputFormat=cobertura'
+    publishTestResults: true
+  
+- task: PublishCodeCoverageResults@1
+  inputs:
+    codeCoverageTool: 'Cobertura'
+    summaryFileLocation: '**/*coverage.cobertura.xml'
+    
 - task: DotNetCoreCLI@2
   inputs:
     command: 'publish'
     publishWebProjects: false
     projects: '**/StudentManagementAPI.csproj'
-    arguments: '--configuration release --output $(Build.ArtifactStagingDirectory) /p:CollectCoverage=true /p:CoverletOutputFormat=cobertura'
-    publishTestResults: true
+    arguments: '--configuration release --output $(Build.ArtifactStagingDirectory) '
+    
 # - task: CopyFiles@2
 #   inputs:
 #     Contents: '**/*.dll'
