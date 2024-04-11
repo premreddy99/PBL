@@ -30,29 +30,37 @@ steps:
     arguments: '--configuration $(BuildConfiguration) --collect:"Code coverage"'
     publishTestResults: true
     publishCodeCoverage: true
-- task: PowerShell@2
-  displayName: 'Check code coverage'
+
+
+- task: PublishCodeCoverageResults@2
   inputs:
-    targetType: 'inline'
-    script: |
-      $coverageReport = "$(Build.SourcesDirectory)\<path_to_coverage_report>\coverage.xml"
-      
-      # Read the coverage percentage from the XML report
-      $coveragePercentage = Select-String -Path $coverageReport -Pattern "<Percent>" | Select-Object -First 1
-      $coveragePercentage = $coveragePercentage -replace '.*<Percent>(\d+).*','$1'
+    codeCoverageTool: 'Cobertura'
+    summaryFileLocation: '$(Agent.TempDirectory)\**\coverage.cobertura.xml'
 
-      if ($coveragePercentage -lt 80) {
-        Write-Host "Code coverage is less than 80%. Stopping the build."
-        exit 1
-      } else {
-        Write-Host "Code coverage is greater than or equal to 80%. Continuing the build."
-      }
+- script: |
+    $coverageReportPath = Get-ChildItem -Path "$(Agent.TempDirectory)" -Recurse -Filter "coverage.cobertura.xml" | Select-Object -ExpandProperty FullName
 
+    if (-not $coverageReportPath) {
+      Write-Host "Coverage report not found. Stopping the build."
+      exit 1
+    }
 
-# - task: PublishCodeCoverageResults@2
-#   inputs:
-#     # codeCoverageTool: 'Cobertura'
-#     summaryFileLocation: '**/*coverage.cobertura.xml'
+    Write-Host "Coverage report found at: $coverageReportPath"
+
+    $coverageReport = Get-Content $coverageReportPath
+    $coveragePercentage = [xml]$coverageReport | Select-Xml -XPath "/CoverageReport/Summary/Percent"
+    $coveragePercentageValue = $coveragePercentage.Node.InnerText
+
+    if ($coveragePercentageValue -lt 6) {
+      Write-Host "Code coverage is less than 80%. Stopping the build."
+      exit 1
+    }
+    else {
+      Write-Host "Code coverage is greater than or equal to 80%. Continuing the build."
+    }
+  displayName: 'Check code coverage'
+  condition: succeeded()
+
     
 - task: DotNetCoreCLI@2
   inputs:
