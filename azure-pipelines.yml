@@ -66,22 +66,19 @@ steps:
   inputs:
     targetType: 'inline'
     script: |
-      SETLOCAL EnableDelayedExpansion
-      
       $coverageReportPath = "$(Build.SourcesDirectory)/TestResults/coverage.cobertura.xml"
       $coverageReport = Get-Content $coverageReportPath
       $coveragePercentage = [xml]$coverageReport | Select-Xml -XPath "/CoverageReport/Summary/Percent"
       $coveragePercentageValue = $coveragePercentage.Node.InnerText
-      
-      FOR /F "tokens=2 delims=>" %%G IN ('FIND "<Percent>" "%coverageReport%"') DO SET "coveragePercentage=%%G"
-      FOR /F "tokens=1" %%G IN ("!coveragePercentage!") DO SET "coveragePercentage=%%~G"
-      
-      IF !coveragePercentage! LSS 80 (
-        echo Code coverage is less than 80%. Stopping the build.
-        EXIT /B 1
-      ) ELSE (
-        echo Code coverage is greater than or equal to 80%. Continuing the build.
-      )
+
+      if ($coveragePercentageValue -lt 80) {
+        Write-Host "Code coverage is less than 80%. Stopping the build."
+        exit 1
+      }
+      else {
+        Write-Host "Code coverage is greater than or equal to 80%. Continuing the build."
+      }
+
 
     
 - task: DotNetCoreCLI@2
