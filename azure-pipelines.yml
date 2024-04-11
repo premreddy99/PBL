@@ -66,7 +66,7 @@ steps:
   inputs:
     targetType: 'inline'
     script: |
-      $coverageReportPath = "$(Build.SourcesDirectory)/TestResults/coverage.cobertura.xml"
+      $coverageReportPath = '$(Agent.TempDirectory)\**\coverage.cobertura.xml'
       $coverageReport = Get-Content $coverageReportPath
       $coveragePercentage = [xml]$coverageReport | Select-Xml -XPath "/CoverageReport/Summary/Percent"
       $coveragePercentageValue = $coveragePercentage.Node.InnerText
