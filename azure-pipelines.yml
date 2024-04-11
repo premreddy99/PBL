@@ -31,10 +31,10 @@ steps:
     publishTestResults: true
     publishCodeCoverage: true
   
-- task: PublishCodeCoverageResults@2
-  inputs:
-    # codeCoverageTool: 'Cobertura'
-    summaryFileLocation: '**/*coverage.cobertura.xml'
+# - task: PublishCodeCoverageResults@2
+#   inputs:
+#     # codeCoverageTool: 'Cobertura'
+#     summaryFileLocation: '**/*coverage.cobertura.xml'
     
 - task: DotNetCoreCLI@2
   inputs:
