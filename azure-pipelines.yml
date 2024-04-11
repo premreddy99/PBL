@@ -32,8 +32,8 @@ steps:
     command: 'publish'
     publishWebProjects: false
     projects: '**/StudentManagementAPI.csproj'
-    arguments: '--configuration release --output $(Build.ArtifactStagingDirectory)'
-    zipAfterPublish: false
+    arguments: '--configuration release --output $(Build.ArtifactStagingDirectory) /p:CollectCoverage=true /p:CoverletOutputFormat=cobertura'
+    publishTestResults: true
 # - task: CopyFiles@2
 #   inputs:
 #     Contents: '**/*.dll'
