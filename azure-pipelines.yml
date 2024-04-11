@@ -30,7 +30,20 @@ steps:
     arguments: '--configuration $(BuildConfiguration) --collect:"Code coverage"'
     publishTestResults: true
     publishCodeCoverage: true
-  
+- script: |
+      $coverageReport = Get-Content "$(Build.SourcesDirectory)/<path_to_coverage_report>/coverage.xml"
+      $coveragePercentage = [xml]$coverageReport | Select-Xml -XPath "/CoverageReport/Summary/Percent"
+      $coveragePercentageValue = $coveragePercentage.Node.InnerText
+
+      if ($coveragePercentageValue -lt 80) {
+        Write-Host "Code coverage is less than 80%. Stopping the build."
+        exit 1
+      }
+      else {
+        Write-Host "Code coverage is greater than or equal to 80%. Continuing the build."
+      }
+  displayName: 'Check code coverage'
+  condition: succeeded()
 # - task: PublishCodeCoverageResults@2
 #   inputs:
 #     # codeCoverageTool: 'Cobertura'
@@ -43,6 +56,7 @@ steps:
     projects: '**/StudentManagementAPI.csproj'
     arguments: '--configuration release --output $(Build.ArtifactStagingDirectory) '
     
+
 # - task: CopyFiles@2
 #   inputs:
 #     Contents: '**/*.dll'
