@@ -73,7 +73,13 @@ namespace StudentManagementAPI.Controllers
         {
             return "abc";
         }
-
+        [HttpGet]
+        [Route("giveMeStudent1")]
+        public string GiveStudent1()
+        {
+            return "def";
+        }
+        
         [HttpPut]
         [Route("UpdateStudentById/{id}")]
         public async void updateStudent(Student student)
