@@ -30,20 +30,25 @@ steps:
     arguments: '--configuration $(BuildConfiguration) --collect:"Code coverage"'
     publishTestResults: true
     publishCodeCoverage: true
-- script: |
-      $coverageReport = Get-Content "$(Build.SourcesDirectory)/<path_to_coverage_report>/coverage.xml"
-      $coveragePercentage = [xml]$coverageReport | Select-Xml -XPath "/CoverageReport/Summary/Percent"
-      $coveragePercentageValue = $coveragePercentage.Node.InnerText
-
-      if ($coveragePercentageValue -lt 6) {
-        Write-Host "Code coverage is less than 6%. Stopping the build."
-        exit 1
-      }
-      else {
-        Write-Host "Code coverage is greater than or equal to 6%. Continuing the build."
-      }
+- task: PowerShell@2
   displayName: 'Check code coverage'
-  condition: succeeded()
+  inputs:
+    targetType: 'inline'
+    script: |
+      SETLOCAL EnableDelayedExpansion
+      
+      SET "coverageReport=$(Build.SourcesDirectory)\<path_to_coverage_report>\coverage.xml"
+      
+      FOR /F "tokens=2 delims=>" %%G IN ('FIND "<Percent>" "%coverageReport%"') DO SET "coveragePercentage=%%G"
+      FOR /F "tokens=1" %%G IN ("!coveragePercentage!") DO SET "coveragePercentage=%%~G"
+      
+      IF !coveragePercentage! LSS 6 (
+        echo Code coverage is less than 80%. Stopping the build.
+        EXIT /B 1
+      ) ELSE (
+        echo Code coverage is greater than or equal to 80%. Continuing the build.
+      )
+
 # - task: PublishCodeCoverageResults@2
 #   inputs:
 #     # codeCoverageTool: 'Cobertura'
