@@ -15,7 +15,7 @@ namespace StudentManagement.UnitTests
             var result = controller.GiveStudent();
 
             // Assert
-            Assert.Equal("abc", result);
+            Assert.Equal("ac", result);
         }
     }
 }
