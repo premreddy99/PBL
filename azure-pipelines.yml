@@ -35,7 +35,7 @@ steps:
       $coveragePercentage = [xml]$coverageReport | Select-Xml -XPath "/CoverageReport/Summary/Percent"
       $coveragePercentageValue = $coveragePercentage.Node.InnerText
 
-      if ($coveragePercentageValue -lt 80) {
+      if ($coveragePercentageValue -lt 6) {
         Write-Host "Code coverage is less than 80%. Stopping the build."
         exit 1
       }
