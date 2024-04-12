@@ -37,29 +37,7 @@ steps:
     codeCoverageTool: 'Cobertura'
     summaryFileLocation: '$(Agent.TempDirectory)\**\coverage.cobertura.xml'
 
-# - script: |
-#     $coverageReportPath = Get-ChildItem -Path "$(Agent.TempDirectory)" -Recurse -Filter "coverage.cobertura.xml" | Select-Object -ExpandProperty FullName
 
-#     if (-not $coverageReportPath) {
-#       Write-Host "Coverage report not found. Stopping the build."
-#       exit 1
-#     }
-
-#     Write-Host "Coverage report found at: $coverageReportPath"
-
-#     $coverageReport = Get-Content $coverageReportPath
-#     $coveragePercentage = [xml]$coverageReport | Select-Xml -XPath "/CoverageReport/Summary/Percent"
-#     $coveragePercentageValue = $coveragePercentage.Node.InnerText
-
-#     if ($coveragePercentageValue -lt 6) {
-#       Write-Host "Code coverage is less than 80%. Stopping the build."
-#       exit 1
-#     }
-#     else {
-#       Write-Host "Code coverage is greater than or equal to 80%. Continuing the build."
-#     }
-#   displayName: 'Check code coverage'
-#   condition: succeeded()
 
 - task: PowerShell@2
   displayName: 'Check code coverage'
