@@ -20,12 +20,14 @@ steps:
   
 
 - task: DotNetCoreCLI@2
+  displayName: 'BUILD'
   inputs:
     command: 'build'
     projects: '**/*.csproj'
 
 
 - task: DotNetCoreCLI@2
+  displayName: 'TEST'
   inputs:
     command: 'test'
     projects: '**/*[Tt]ests*/*.csproj'
@@ -36,6 +38,7 @@ steps:
     publishCodeCoverage: true
 
 - task: BuildQualityChecks@9
+  displayName: 'Build Quality Check'
   inputs:
     checkWarnings: true
     warningFailOption: 'fixed'
@@ -73,6 +76,7 @@ steps:
 
     
 - task: DotNetCoreCLI@2
+  displayName: 'PUBLISH'
   inputs:
     command: 'publish'
     publishWebProjects: false
