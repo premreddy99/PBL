@@ -1,5 +1,6 @@
 #Testing about CI
 
+
 trigger:
 - main
 
@@ -16,6 +17,7 @@ steps:
         Write-Output "The file '$filePath' exists."
     }
   displayName: 'Check File Existence'
+  
 - task: DotNetCoreCLI@2
   inputs:
     command: 'build'
@@ -56,6 +58,15 @@ steps:
 #         Write-Host "Code coverage is greater than or equal to 80%. Continuing the build."
 #       }
 
+- task: BuildQualityChecks@9
+  inputs:
+    checkWarnings: true
+    warningFailOption: 'fixed'
+    warningThreshold: '5'
+    checkCoverage: true
+    coverageFailOption: 'fixed'
+    coverageType: 'blocks'
+    coverageThreshold: '50'
 
     
 - task: DotNetCoreCLI@2
