@@ -24,15 +24,7 @@ steps:
     command: 'build'
     projects: '**/*.csproj'
 
-- task: BuildQualityChecks@9
-  inputs:
-    checkWarnings: true
-    warningFailOption: 'fixed'
-    warningThreshold: '15'
-    checkCoverage: true
-    coverageFailOption: 'fixed'
-    coverageType: 'blocks'
-    coverageThreshold: '5'
+
 - task: DotNetCoreCLI@2
   inputs:
     command: 'test'
@@ -43,6 +35,15 @@ steps:
     publishTestResults: true
     publishCodeCoverage: true
 
+- task: BuildQualityChecks@9
+  inputs:
+    checkWarnings: true
+    warningFailOption: 'fixed'
+    warningThreshold: '15'
+    checkCoverage: true
+    coverageFailOption: 'fixed'
+    coverageType: 'blocks'
+    coverageThreshold: '5'
 
 # - task: PublishCodeCoverageResults@2
 #   inputs:
