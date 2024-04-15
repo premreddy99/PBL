@@ -18,6 +18,15 @@ steps:
     }
   displayName: 'Check File Existence'
   
+- task: BuildQualityChecks@9
+  inputs:
+    checkWarnings: true
+    warningFailOption: 'fixed'
+    warningThreshold: '15'
+    checkCoverage: true
+    coverageFailOption: 'fixed'
+    coverageType: 'blocks'
+    coverageThreshold: '5'
 - task: DotNetCoreCLI@2
   inputs:
     command: 'build'
@@ -58,15 +67,7 @@ steps:
 #         Write-Host "Code coverage is greater than or equal to 80%. Continuing the build."
 #       }
 
-- task: BuildQualityChecks@9
-  inputs:
-    checkWarnings: true
-    warningFailOption: 'fixed'
-    warningThreshold: '15'
-    checkCoverage: true
-    coverageFailOption: 'fixed'
-    coverageType: 'blocks'
-    coverageThreshold: '5'
+
 
     
 - task: DotNetCoreCLI@2
