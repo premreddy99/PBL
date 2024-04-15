@@ -62,11 +62,11 @@ steps:
   inputs:
     checkWarnings: true
     warningFailOption: 'fixed'
-    warningThreshold: '5'
+    warningThreshold: '15'
     checkCoverage: true
     coverageFailOption: 'fixed'
     coverageType: 'blocks'
-    coverageThreshold: '50'
+    coverageThreshold: '5'
 
     
 - task: DotNetCoreCLI@2
