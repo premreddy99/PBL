@@ -62,7 +62,7 @@ steps:
   inputs:
     command: 'publish'
     publishWebProjects: false
-    projects: '/StudentManagementAPI.csproj'
+    projects: '**/StudentManagementAPI.csproj'
     arguments: '--configuration release --output $(Build.ArtifactStagingDirectory) '
     
 
