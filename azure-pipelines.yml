@@ -18,6 +18,12 @@ steps:
     }
   displayName: 'Check File Existence'
   
+
+- task: DotNetCoreCLI@2
+  inputs:
+    command: 'build'
+    projects: '**/*.csproj'
+
 - task: BuildQualityChecks@9
   inputs:
     checkWarnings: true
@@ -27,11 +33,6 @@ steps:
     coverageFailOption: 'fixed'
     coverageType: 'blocks'
     coverageThreshold: '5'
-- task: DotNetCoreCLI@2
-  inputs:
-    command: 'build'
-    projects: '**/*.csproj'
-
 - task: DotNetCoreCLI@2
   inputs:
     command: 'test'
